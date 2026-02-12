@@ -6,4 +6,238 @@
   box-sizing: border-box;
 }
 
-/* Continuar digitação código CSS (deste ponto) */
+/* Variaveis do tema (cores) */
+:root{
+  --cor-primaria: #f9003d;
+  --cor-secundaria: #a259f7;
+  --cor-destaque: #ffaf00;
+  --fundo-escuro: #080324;
+  --texto-claro: #fff;
+  --texto-escuro: #c7bab3;
+}
+
+/* Estilos gerais */
+body {
+  background-color: var(--fundo-escuro);
+  color: var(--texto-claro);
+  font-family: 'Bebas neue', sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+address {
+  /* remove o itálico padrao do tag address */
+  font-style: normal;
+}
+
+.container {
+width: 85%;
+max-width: 1200px;
+margin: 0 auto;
+padding: 1rem 0;
+}
+
+/* header */
+header{
+  background-color: var(--cor-primaria);
+  position: fixed; /*manter header no topo fixo*/
+  width: 100%;
+  z-index: 10;
+  padding: 0.5rem 0;
+}
+
+.nav-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  fle
+}
+
+.logo{
+  height: 40px;
+}
+
+/* menu */
+.menu{
+  display: flex;
+  gap: 1.5rem; /*espaça links do menu*/
+  list-style: none; /*retira a bolinha da lista*/
+}
+
+.menu a {
+  color: var(--texto-claro);
+  text-decoration: none; /*retira o undeline no link*/
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: color 0.3 ease;
+}
+
+.menu a:hover {
+  color: var(--cor-destaque); /*quando o mouse estiver em cima*/ 
+}
+
+.btn-menu{
+  display: none; /*esconde o menu hamburguer*/
+}
+
+.botao{
+  background-color: var(--cor-secundaria);
+  color: var(--texto-claro);
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: all 0.3s ease-in-out;
+
+}
+.botao:hover {
+  background: linear-gradient(135deg, var(--cor-secundaria), var(--cor-destaque));
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);/*sombra*/
+  transform: translate(-2px) scale(1.05); /*efeito de elevação*/
+}
+
+/*Banner principal (main)*/
+.banner {
+  background: linear-gradient(
+  rgba(0,0,0,0.1),
+  rgba(0,0,0,0.1)
+),
+url("../assets/imagem-fundo-banner.jpg");
+
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-top: 60px;
+}
+
+.conteudo-banner h1{
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.linha-destaque{
+  width: 400px;
+  height: 2px;
+  background-color: var(--cor-destaque);
+  margin: 1rem auto;
+}
+
+.subtitulo{
+  font-size: 1.8rem;
+  color: var(--texto-claro);
+  margin-bottom: 2rem;
+}
+
+.mouse{
+  width: 60px;
+  margin-top: 2rem;
+  opacity: 0.8;
+}
+
+/* seção sobre*/
+.sobre{
+  background-color: #181012;
+  padding: 4rem 0;
+}
+.titulo-secao{
+  color: var(--cor-primaria);
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+
+}
+
+/*container para organizar imagem e texto lado a lado*/
+.conteudo-sobre {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.imagem-sobre{
+  width: 45%;
+  border-radius: 10px;
+  min-width: 300px;
+  flex: 1;
+}
+
+.texto-sobre{
+  width: 50%;
+  min-width: 300px;
+  flex: 1;
+}
+
+.destaque{
+  color: var(--cor-destaque);
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase; /*transforma texto em maiusculas*/
+}
+
+.texto-sobre h3{
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+
+.texto-sobre p {
+  color: var(--texto-escuro);
+  font-size: 1.2rem;
+}
+
+
+/* ________________________________ */
+
+/* responsividade (tamanho de tela diferente) */
+
+/* regra quando a tela for menor que 768px */
+@media (max-width: 768px) {
+.nav-header {
+  justify-content: center;
+}
+
+.menu{
+  padding-top: 0;
+}
+
+.conteudo-sobre, .conteudo-endereco {
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.imagem-sobre, .texto-sobre{
+  width: 100%;
+}
+
+/*exclusiva para menu hamburguer*/
+.btn-menu{
+  display: block;
+  background: none;
+  border: none;
+  color: var(--texto-escuro);
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.nav-header{
+  justify-content: space-between;
+
+}
+
+.menu {
+display: none;
+width: 100%;
+flex-direction: column;
+align-items: center;
+padding-top: 1rem;
+}
+
+.menu.aberto{
+  display: flex;
+}
+}
